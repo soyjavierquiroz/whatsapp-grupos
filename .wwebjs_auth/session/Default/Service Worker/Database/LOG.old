@@ -1,2 +1,5 @@
-2025/03/01-22:44:01.778 724 Creating DB C:\Users\Javier\Desktop\DigitalOceanProyects\whatsapp-grupos\.wwebjs_auth\session\Default\Service Worker\Database since it was missing.
-2025/03/01-22:44:01.784 724 Reusing MANIFEST C:\Users\Javier\Desktop\DigitalOceanProyects\whatsapp-grupos\.wwebjs_auth\session\Default\Service Worker\Database/MANIFEST-000001
+2025/03/02-18:16:26.536 2920 Recovering log #4
+2025/03/02-18:16:26.537 2920 Level-0 table #6: started
+2025/03/02-18:16:26.539 2920 Level-0 table #6: 662 bytes OK
+2025/03/02-18:16:26.546 2920 Delete type=3 #2
+2025/03/02-18:16:26.546 2920 Delete type=0 #4

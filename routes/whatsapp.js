@@ -7,11 +7,14 @@ const os = require('os'); // Detectar el sistema operativo
 console.log(`🖥️ Sistema operativo detectado: ${os.platform()}`);
 
 // Configuración del cliente de WhatsApp
+
 const clientConfig = {
     puppeteer: {
         headless: true,
+        args: process.platform === 'linux' ? ['--no-sandbox', '--disable-setuid-sandbox'] : []
     },
 };
+
 
 // Usar LocalAuth solo en DigitalOcean (Linux)
 if (os.platform() === 'linux') {
