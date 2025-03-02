@@ -5,6 +5,9 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
+const client = require('./whatsapp');
+client.initialize();
+
 // Middleware para parsear JSON en las solicitudes
 app.use(express.json());
 
