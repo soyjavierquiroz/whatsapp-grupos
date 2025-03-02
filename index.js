@@ -1,25 +1,25 @@
-// Cargar variables de entorno desde .env (si existe)
-require('dotenv').config();
-
-// Importar Express para crear el servidor web
 const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
 const app = express();
+const port = 3000;
 
-const client = require('./whatsapp');
-client.initialize();
+// Middlewares
+app.use(cors());
+app.use(bodyParser.json());
 
-// Middleware para parsear JSON en las solicitudes
-app.use(express.json());
+// Importar rutas de WhatsApp
+const whatsappRoutes = require('./routes/whatsapp');
+app.use('/api/whatsapp', whatsappRoutes);
 
-// Ruta de prueba para verificar que el servidor funciona
-app.get('/', (req, res) => {
-    res.send('🚀 Servidor WhatsApp Bot funcionando!');
+// Manejo de errores
+app.use((err, req, res, next) => {
+    console.error('Error:', err);
+    res.status(500).json({ error: 'Error interno del servidor' });
 });
 
-// Definir el puerto (usar .env o valor por defecto 3000)
-const PORT = process.env.PORT || 3000;
-
-// Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
+// Iniciar servidor
+app.listen(port, () => {
+    console.log(`✅ Servidor corriendo en http://localhost:${port}`);
 });
